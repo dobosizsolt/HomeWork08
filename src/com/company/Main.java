@@ -12,6 +12,9 @@ public class Main {
         //FileOperation.fileMaker("D:\\", 3, "proba.txt");
 
         // 3. feladat ellenőrzés
-        FileOperation.fileMakerWithContent("Remélem most jó lesz!","D:\\", "proba.txt");
+        //FileOperation.fileMakerWithContent("Remélem most jó lesz!","D:\\", "proba.txt");
+
+        // 4. feladat ellenőrzés
+        FileOperation.fileMakerWithContent("Remélem most jó lesz!",3,"D:\\", "proba.txt");
     }
 }

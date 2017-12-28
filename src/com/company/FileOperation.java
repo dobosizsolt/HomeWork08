@@ -72,4 +72,31 @@ public class FileOperation {
             }
         }
     }
+
+    public static void fileMakerWithContent(String text, int fileQuantity, String path, String fileName) {
+
+        String[] splFileName = new String[2];
+        splFileName = fileName.split("\\.");
+        FileOutputStream fout = null;
+
+        try {
+            for (int i = 1; i <= fileQuantity; i++) {
+                String modifiedFileName = splFileName[0] + i + "." + splFileName[1];
+                fout = new FileOutputStream(path + modifiedFileName);
+                fout.write(text.getBytes());
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
