@@ -99,4 +99,32 @@ public class FileOperation {
             }
         }
     }
+
+    public static void printMatrixIntoFile(int[][] mtx) {
+        FileOutputStream fout = null;
+
+        try {
+            fout = new FileOutputStream("D:\\matrix.txt");
+            for (int i = 0; i < mtx.length; i++) {
+                for (int j = 0; j < mtx[i].length; j++) {
+                    String matrix = String.valueOf(mtx[i][j]);
+                    fout.write(matrix.getBytes());
+                    fout.write("\t".getBytes());
+                }
+                fout.write("\r\n".getBytes());
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
