@@ -51,4 +51,25 @@ public class FileOperation {
             }
         }
     }
+
+    public static void fileMakerWithContent(String text, String path, String fileName) {
+        FileOutputStream fout = null;
+
+        try {
+            fout = new FileOutputStream(path + fileName);
+            fout.write(text.getBytes());
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
